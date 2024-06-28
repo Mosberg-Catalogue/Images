@@ -1,0 +1,510 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Noto+Color+Emoji&display=swap");
+
+:root {
+  --custom-comfy-text: #e1d5e8;
+  --custom-comfy-bar-height: 50px;
+  --custom-comfy-sidebar-width: 200px;
+  --custom-comfy-sidebar-bg: #49355a;
+  --custom-comfy-modal-border: #9d6fb9;
+  --custom-comfy-button-bg: #a66ed8;
+
+  --custom-comfy-fonts: "Comfortaa", sans-serif !important;
+}
+
+#custom-comfy,
+#custom-comfy * {
+  font-family: var(--custom-comfy-fonts);
+  font-size: 1rem;
+}
+
+#custom-comfy {
+  color: var(--custom-comfy-text);
+}
+
+#custom-comfy #batchCountInputNumber {
+  width: 50px;
+  height: 26px;
+  text-align: center;
+  background-color: #d4c4e3;
+  border: none;
+  color: #241a2d;
+}
+
+.emoji {
+  font-family: "Noto Color Emoji", sans-serif !important;
+}
+
+.custom-comfy-top-bar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--custom-comfy-bar-height);
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(119, 86, 148);
+  background: linear-gradient(
+    135deg,
+    rgba(119, 86, 148, 1) 20%,
+    rgba(36, 26, 45, 1) 100%
+  );
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.custom-comfy-top-bar-left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 10px;
+}
+
+.custom-comfy-top-bar-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.custom-comfy-top-bar-right > *,
+.custom-comfy-top-bar-left > *,
+.custom-comfy-top-bar-right button.comfy-queue-btn {
+  margin-left: 1rem !important;
+}
+
+.custom-comfy-top-bar-right > *:last-child {
+  margin-left: 0;
+}
+
+.custom-comfy-top-bar-left > *:first-child {
+  margin-left: 0;
+}
+
+.custom-comfy-logo {
+  position: relative;
+  height: 85%;
+}
+
+.custom-comfy-logo img {
+  height: 100%;
+}
+
+.custom-comfy-button {
+  background-color: #b382e0;
+  border: none;
+  color: #241a2d;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: auto;
+  height: 28px;
+  line-height: 1.25rem;
+  cursor: pointer;
+
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.custom-comfy-button:hover {
+  background-color: var(--custom-comfy-button-bg);
+  color: #241a2d;
+}
+
+button.custom-comfy-button > svg {
+  margin: 0 0.2rem;
+}
+
+.custom-comfy-menu-button:hover {
+  color: #999;
+}
+
+.custom-comfy-menu-button:active {
+  color: #666;
+}
+
+div.custom-comfy-menu {
+  position: absolute;
+  top: var(--custom-comfy-bar-height);
+  right: 0;
+  bottom: 0;
+
+  background-color: var(--custom-comfy-sidebar-bg);
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  width: var(--custom-comfy-sidebar-width);
+
+  padding: 0 !important;
+
+  z-index: 2;
+}
+
+div.custom-comfy-menu button,
+div.custom-comfy-menu .custom-queue-button {
+  border: 0;
+  border-radius: 0;
+
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 33px;
+
+  background-color: #251b2e;
+  color: #eed7eb !important;
+}
+
+div.custom-comfy-menu hr {
+  height: 1px !important;
+  background-color: #ed8def;
+  border: 0;
+}
+
+div.custom-comfy-menu .custom-queue-button {
+  padding: 0.25rem 1rem;
+  font-size: 1.25rem;
+}
+
+div.custom-comfy-list {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: initial;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: stretch;
+}
+
+div.custom-comfy-list h4 {
+  font-family: "Comfortaa", sans-serif !important;
+  color: #eed7eb !important;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+div.custom-comfy-list .comfy-list-items:first-of-type:empty:before {
+  font-size: 0.7rem;
+  content: "Nothing!";
+  color: #eed7eb !important;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+div.custom-comfy-menu .custom-comfy-spacer {
+  flex-grow: 1;
+}
+
+div.custom-comfy-list {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  flex-grow: 10;
+}
+
+div.custom-comfy-list .comfy-list-items {
+  overflow: auto;
+  min-height: 0;
+  width: 100%;
+  background: initial;
+  max-height: unset;
+  max-height: unset;
+  flex-basis: 0;
+  padding: 0;
+}
+
+div.custom-comfy-list .comfy-list-items:not(:first-of-type) {
+  flex-grow: 1;
+  height: 100%;
+}
+
+div.custom-comfy-list .comfy-list-items:first-of-type {
+  flex-grow: 0;
+  min-height: 32px;
+  overflow: hidden;
+}
+
+div.custom-comfy-list ~ div.custom-comfy-list .comfy-list-items {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+div.custom-comfy-list .comfy-list-items > div {
+  width: 100%;
+
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: #382747;
+}
+
+div.custom-comfy-list .comfy-list-items > div > span {
+  display: inline-block;
+  font-size: 1rem;
+  color: #eed7eb !important;
+  flex-grow: 1;
+  text-align: left;
+  padding: 0 0.75rem;
+  order: -2;
+}
+
+div.custom-comfy-list .comfy-list-items > div > svg {
+  order: -1;
+  color: #ff30c5;
+}
+
+div.custom-comfy-list .comfy-list-items > div > span:before {
+  content: "#";
+}
+
+div.custom-comfy-list .comfy-list-items > div > button {
+  flex-grow: 0;
+  justify-self: flex-end;
+  background: none;
+  min-height: unset;
+  min-width: unset;
+  height: 100%;
+}
+
+div.custom-comfy-list .comfy-list-items > div .custom-queue-button {
+  padding: 0.25rem 0.6rem !important;
+}
+
+/* Hover effects */
+button:hover > .custom-hover-red {
+  color: #e5586a;
+}
+
+button:hover > .custom-hover-blue {
+  color: #5890e5;
+}
+
+button:hover > .custom-hover-green {
+  color: #58e57a;
+}
+
+.custom-comfy-pop-menu {
+  position: absolute;
+  right: -7.5em;
+  top: 50px;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.custom-comfy-pop-menu > * {
+  height: unset;
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+
+.custom-comfy-top-bar-left {
+  position: relative;
+}
+
+/* Modals! */
+.comfy-modal {
+  background-color: var(--custom-comfy-sidebar-bg);
+  border: 1px solid var(--custom-comfy-modal-border);
+  box-shadow: 4px 4px 18px 5px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+
+  font-family: var(--custom-comfy-fonts);
+  text-align: center;
+}
+
+.comfy-modal:before {
+  content: "CUSTOM!";
+
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: -30px;
+
+  background-color: rgb(239, 51, 145);
+  color: white;
+  line-height: 1.2;
+  font-weight: 600;
+  overflow: hidden;
+
+  padding: 3px 40px 1px;
+  transform-origin: 50%;
+  transform: rotate(-35deg);
+}
+
+.comfy-modal .comfy-modal-content hr {
+  height: 1px;
+  border: none;
+  background-color: rgb(239, 51, 145);
+  margin: 1rem -4rem;
+  width: 200%;
+}
+
+.comfy-modal .comfy-modal-content br + hr {
+  margin-top: 0;
+}
+
+.comfy-modal .comfy-modal-content hr + br {
+  display: none;
+}
+
+.comfy-modal .comfy-modal-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.comfy-modal .comfy-modal-content > tr:first-of-type {
+  background-color: unset !important;
+  margin-top: 1rem !important;
+}
+
+.comfy-modal .comfy-modal-content button {
+  display: inline !important;
+  width: unset !important;
+  background-color: transparent !important;
+  border: unset !important;
+  box-shadow: unset !important;
+  border-radius: unset !important;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.comfy-modal .comfy-modal-content button:hover {
+  background-color: var(--custom-comfy-button-bg) !important;
+  color: #111;
+}
+
+.comfy-modal .comfy-modal-content button:hover p {
+  color: #111 !important;
+}
+
+.comfy-modal .comfy-modal-content button p {
+  font-size: unset !important;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.comfy-modal .comfy-modal-content button p p {
+  margin-left: 0.5rem !important;
+  margin-top: 2px !important;
+}
+
+.comfy-modal .comfy-modal-content button > svg {
+  margin-right: 0.5rem;
+}
+
+.comfy-modal .comfy-modal-content select {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: 1px solid hotpink;
+  margin: 0.5rem 0;
+  padding: 0.3rem;
+  border-radius: 3px;
+  font-family: var(--custom-comfy-fonts);
+}
+
+.comfy-modal .comfy-modal-content select > option {
+  background-color: white;
+  color: #222;
+}
+
+#cm-manager-dialog {
+  /* Fix the height being too small. */
+  min-height: 600px;
+}
+
+.cm-notice-board {
+  min-height: 400px;
+  text-align: left;
+}
+
+/* Overrides for ... dropdowns? */
+#cm-manual-button,
+#workflowgallery-button {
+  background-color: #564565 !important;
+}
+
+/* Main Settings Dialog */
+#comfy-settings-dialog {
+  border: 2px solid #b04480;
+  border-radius: 3px;
+
+  max-height: 80vh !important;
+  height: 80vh !important;
+  top: 5vh !important;
+
+  box-shadow: 6px 6px 20px 4px rgba(0, 0, 0, 0.6);
+
+  overflow-y: auto;
+  overflow-x: visible;
+}
+
+#comfy-settings-dialog,
+#comfy-settings-dialog tr,
+#comfy-settings-dialog caption {
+  font-family: var(--custom-comfy-fonts);
+  background-color: var(--custom-comfy-sidebar-bg);
+}
+
+#comfy-settings-dialog td {
+  border: none !important;
+}
+
+#comfy-settings-dialog caption {
+  background-color: #2c2036;
+  color: white !important;
+}
+
+#comfy-settings-dialog tr:nth-child(2n-1) {
+  background-color: #423051;
+}
+
+#comfy-settings-dialog tr td {
+  font-size: 14px;
+}
+
+#comfy-settings-dialog tr td label.comfy-tooltip-indicator {
+  cursor: help;
+}
+
+#comfy-settings-dialog table > caption,
+#comfy-settings-dialog table > button {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+
+  font-size: 1.2rem;
+}
+
+/* Overrides the built-in media query for small screens, argh...! */
+@media only screen and (max-height: 850px) {
+  .comfy-menu.custom-comfy-menu {
+    top: var(--custom-comfy-bar-height) !important;
+  }
+}
+
+/* Overrides text boxes having a weird z-index by default... */
+textarea.comfy-multiline-input {
+  z-index: 0 !important;
+}
+
+legend.cm-experimental-legend {
+  font-size: 11px;
+  line-height: 2;
+}
+
+/* Custom addons */
+.pysssss-image-feed--top,
+.pysssss-image-feed--bottom {
+  width: calc(100vw - var(--custom-comfy-sidebar-width)) !important;
+}
